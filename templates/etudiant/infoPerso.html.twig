@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block titrePage %}Information Personnelle{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <h1 class="col-12" style="text-align:center; margin: 0 0 80px 0">{{user.firstname | capitalize}} {{user.lastname | capitalize}}</h1>
+        <div class="col-8">
+            <h4 class="" style="margin:20px"> <strong>Login LDAP : </strong>{{user.username}} </h4>
+            <h4 class="" style="margin:20px"> <strong>Mail : </strong>{{user.email}}  </h4>
+            <h4 class="" style="margin:20px"> <strong>Numéro de téléphone : </strong>{{user.tel}} </h4>
+            <h4 class="" style="margin:20px"> Né le {{user.birthday | date("d,m,Y")}}</h4>
+        </div>
+        <div class="col-4">
+        <img src="http://placehold.it/150x200" alt="" class="">
+        </div>
+        
+    </div>
+</div>
+
+<div class="container">
+<a href="{{path("etudiant_voirBulletin", {"username": user.username, "numSemestre": 1})}}">Voir Semestre 1</a>
+<a href="{{path("etudiant_voirBulletin", {"username": user.username, "numSemestre": 2})}}">Voir Semestre 2</a>
+<a href="{{path("etudiant_voirBulletin", {"username": user.username, "numSemestre": 3})}}">Voir Semestre 3</a>
+<a href="{{path("etudiant_voirBulletin", {"username": user.username, "numSemestre": 4})}}">Voir Semestre 4</a>
+
+    {% block prof %}{% endblock %}
+</div>
+{% endblock %}

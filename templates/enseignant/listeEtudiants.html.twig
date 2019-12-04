@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block titrePage %}Listes des étudiants{% endblock %}
+{% block body %}
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr align="center">
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Login</th>
+                <th scope="col">Email</th>
+                <th scope="col">Téléphone</th>
+                <th></th>
+            </tr>
+        </thead>
+{% for etudiant in etudiants %}
+            <tr>
+                <td align="center" >{{etudiant.lastname}}</td>
+                <td align="center">{{etudiant.firstname}}</td>
+                <td align="center">{{etudiant.username}}</td>
+                <td align="center">{{etudiant.email}}</td>
+                <td align="center">{{etudiant.tel}}</td>
+                <td align="center"><a style="border-radius: 5px;" type="button" class="btn btn-outline-primary" href="{{ path('enseignant_infoEtudiant', { 'username': etudiant.username }) }}">Voir fiche étudiant</a></td>
+            </tr>
+{% endfor %}
+    </table>
+{% endblock %}

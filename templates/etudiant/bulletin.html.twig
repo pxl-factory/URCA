@@ -1,0 +1,122 @@
+{% extends "base.html.twig" %}
+
+{% block titrePage %}Bulletin  de {{user.lastname}}{% endblock %}
+
+{% block body %}
+
+<table class="table">
+    <thead>
+        <tr class="text-center">
+            <th scope="col"></th>
+            <th scope="col">TPS</th>
+            <th scope="col">TD</th>
+            <th scope="col">TP</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set nbue = 0 %}
+        {% for ue in ues %}
+            <tr class="">
+                <th class="" scope="row">{{ue.nom}}</th>
+            </tr>
+                {% set nbmodule = 0 %}
+                {# Pour chaque module de l'unité d'ensiegnement #}
+                {% for module in modules[nbue] %}
+                <tr class="bg-light">
+                    {# On affiche le nom du module #}
+                    <th class="text-right " scope="row">{{module.nom}}</th>
+                    {% set countTPS = 0 %}
+                    {% set countTD = 0 %}
+                    {% set countTP = 0 %}
+
+                        {% if  tab[module.nom]['TPS'] == true %}
+                            {# essai avec le for note ici et dans les autre tab[module] #}
+                            <td class="text-center" scope="row">
+                                <ul class="list-group list-unstyled">
+                                {% for note in notes %}
+                                    {% if note.typeCours.nomCourt == "TPS" %}
+                                        {% if note.module.nom == module.nom %} 
+                                            <li class="text-center liste-group-item" >
+                                                {% if note.note == null %}
+                                                - &nbsp;(coeff {{note.coeff}})
+                                                {% else %}
+                                                {{note.note}} &nbsp;(coeff {{note.coeff}})
+                                                {% endif %}
+                                            </li>         
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                                </ul>
+                            </td>
+                        {% else %}
+                            {% if tab[module.nom]['TPS'] == false and countTPS == 0 %}
+                                <td scope="row"></td>
+                                {% set countTPS = 1 %}
+                            {% endif %}
+                        {% endif %}
+                        
+
+
+                        {% if  tab[module.nom]['TD'] == true %}
+                            <td class="text-center" scope="row">
+                                <ul class="list-group list-unstyled">
+                                {% for note in notes %}
+                                    {% if note.typeCours.nomCourt == "TD" %}
+                                        {% if note.module.nom == module.nom %} 
+                                            <li class="text-center liste-group-item" >
+                                                {% if note.note == null %}
+                                                - &nbsp;(coeff {{note.coeff}})
+                                                {% else %}
+                                                {{note.note}} &nbsp;(coeff {{note.coeff}})
+                                                {% endif %}
+                                            </li>         
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                                </ul>
+                            </td>
+                        {% else %}
+                            {% if tab[module.nom]['TD'] == false and countTD == 0 %}
+                                <td scope="row"></td>
+                                {% set countTD = 1 %}
+                            {% endif %}
+                        {% endif %}
+
+
+                        {% if  tab[module.nom]['TP'] == true %}
+                            <td class="text-center" scope="row">
+                                <ul class="list-group list-unstyled">
+                                {% for note in notes %}
+                                    {% if note.typeCours.nomCourt == "TP" %}
+                                        {% if note.module.nom == module.nom %} 
+                                            <li class="text-center liste-group-item" >
+                                                {% if note.note == null %}
+                                                - &nbsp;(coeff {{note.coeff}})
+                                                {% else %}
+                                                {{note.note}} &nbsp;(coeff {{note.coeff}})
+                                                {% endif %}
+                                            </li>         
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                                </ul>
+                            </td>
+                       {% else %}
+                            {% if tab[module.nom]['TP'] == false and countTP == 0 %}
+                                <td scope="row"></td>
+                                {% set countTP = 1 %}
+                            {% endif %}
+                        {% endif %}
+
+                    
+                    
+                    {% set nbmodule = nbmodule + 1 %}
+                    </tr>
+                {% endfor %}
+                {% set nbue = nbue + 1 %}
+            
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

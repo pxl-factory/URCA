@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+{% form_theme registrationEtudiantForm 'bootstrap_4_layout.html.twig' %}
+
+
+{% block titrePage %}Enregistrement Etudiant{% endblock %}
+{% block body %}
+
+    <div class="container-fluid">
+    {{ form_start(registrationEtudiantForm) }}
+    <div class="row d-flex align-items-center justify-content-around">
+        <div class=" text-center col-6 ">
+            <div class="form-group ">
+                {{ form_label(registrationEtudiantForm.username, 'Login' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEtudiantForm.username, {'attr' :{
+                    'class' : ''
+                }}) }}
+
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEtudiantForm.plainPassword, 'Mot de passe' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEtudiantForm.plainPassword, {'attr' :{
+                    'class' : ''
+                }}) }}
+                
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEtudiantForm.lastname, 'Nom de famille' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+           {{form_widget(registrationEtudiantForm.lastname, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEtudiantForm.firstname, 'Prénom' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEtudiantForm.firstname, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEtudiantForm.email, 'Adresse Mail' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEtudiantForm.email, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEtudiantForm.tel, 'Numméro de Téléphone' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEtudiantForm.tel, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEtudiantForm.birthday, 'Date de Naissance' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEtudiantForm.birthday, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+
+        </div>
+        <div class=" text-center col-6 ">
+            <div class="form-group">
+            {{ form_label(registrationEtudiantForm.classe, 'Classe' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEtudiantForm.classe, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEtudiantForm.place_exam, 'Place d\'Examen' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEtudiantForm.place_exam, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEtudiantForm.annee_master, 'Année du master en cours' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEtudiantForm.annee_master, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            
+        
+        </div>
+    </div>
+    
+    <div class="flex-col text-center">
+            <div class="form-group">
+                {{ form_label(registrationEtudiantForm.agreeTerms, 'Accepter les termes d\'inscriptions.' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEtudiantForm.agreeTerms, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+        <button type="submit" class=" justify-content-center  text-center btn btn-primary">Enregistrer l'étudiant</button>
+
+    </div>
+</div>
+    {{ form_end(registrationEtudiantForm) }}
+    
+{% endblock %}

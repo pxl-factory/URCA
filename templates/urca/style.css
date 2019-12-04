@@ -1,0 +1,37 @@
+.boutton{
+   vertical-align: middle;
+   color: blue;
+}
+
+img{
+  height: 125px;
+  width: 125px;
+}
+
+nav{
+  margin-top: 30px;
+  border: solid;
+}
+
+header{
+  justify-content: space-between;
+  margin-top: 10px;
+  height: 75px;
+}
+
+section{
+}
+
+body, html, head{
+	height: 100%;
+	width: 100%;
+}
+
+.englobe{
+	height: 95%;
+	width: 100%;
+}
+
+table{
+  width:100%;
+}

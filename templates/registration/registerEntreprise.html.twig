@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+{% form_theme registrationEntrepriseForm 'bootstrap_4_layout.html.twig' %}
+
+{% block titrePage %}Enregistrement Entreprise{% endblock %}
+{% block body %}
+
+    <div class="container-fluid">
+    {{ form_start(registrationEntrepriseForm) }}
+    <div class="row d-flex align-items-center justify-content-around">
+        <div class=" text-center col-6 ">
+            <div class="form-group ">
+                {{ form_label(registrationEntrepriseForm.username, 'Login' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEntrepriseForm.username, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEntrepriseForm.plainPassword, 'Mot de passe' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEntrepriseForm.plainPassword, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEntrepriseForm.lastname, 'Nom de famille' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+           {{form_widget(registrationEntrepriseForm.lastname, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEntrepriseForm.firstname, 'Prénom' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEntrepriseForm.firstname, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEntrepriseForm.email, 'Adresse Mail' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEntrepriseForm.email, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEntrepriseForm.tel, 'Numméro de Téléphone' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEntrepriseForm.tel, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            <div class="form-group">
+            {{ form_label(registrationEntrepriseForm.birthday, 'Date de Naissance' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEntrepriseForm.birthday, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+
+        </div>
+        <div class=" text-center col-6 ">
+             <div class="form-group">
+            {{ form_label(registrationEntrepriseForm.nom_entreprise, 'Nom Entreprise' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEntrepriseForm.nom_entreprise, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+            
+            
+        
+        </div>
+    </div>
+    
+    <div class="flex-col text-center">
+            <div class="form-group">
+                {{ form_label(registrationEntrepriseForm.agreeTerms, 'Accepter les termes d\'inscriptions.' ,{ 'attr' : {'class' : ''} }) }}
+                <br>
+                {{form_widget(registrationEntrepriseForm.agreeTerms, {'attr' :{
+                    'class' : ''
+                }}) }}
+            </div>
+        <button type="submit" class=" justify-content-center  text-center btn btn-primary">Enregistrer l'entreprise</button>
+
+    </div>
+</div>
+    {{ form_end(registrationEntrepriseForm) }}
+    
+{% endblock %}
